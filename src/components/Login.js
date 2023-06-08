@@ -24,7 +24,7 @@ const Login = () => {
   return (
     <div className='flex flex-row w-full p-4 gap-4 justify-center align-middle'>
         <form onSubmit={submithandler} className='flex  w-[auto] p-4 gap-4 flex-col justify-center align-middle'>
-            <Cover title={isRegistering?"Registrate":"Inicio de session"} subtitle={isRegistering?"Registrate para crear tu catalogo rapido y comenzar a compartir tus productos":"Inicio de session si ya estas registrado y accede a tu catalogo"}/>
+            <Cover title={isRegistering?"Registrate":"Inicio de session"} subtitle={isRegistering?"Registrate para acceder a tu dashboard":"Inicia sesion para acceder a tu dashboard"}/>
             
 
                 <input className='inp max-w-lg' placeholder='Correo' id="form_email"></input>
