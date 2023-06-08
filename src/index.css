@@ -1,3 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --pricolor: #19A7CE;
+  --seccolor:#FEFF86;
+  --darkcolor:#146C94;
+  --darkcolorx2:#10597a;
+  --bgcolor:#f1f1f1;
+  --fcolor:#B0DAFF;
+  --okcolor:#03C988;
+
+  --padding:10px 8px 10px 8px;
+  --borderrad:12px
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +27,49 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 16px;
+  gap: 16px;
+}
+.inp{
+
+  
+  border: 2px solid var(--fcolor);
+  border-radius: var(--borderrad);
+  color: var(--darkcolor);
+  padding: var(--padding);
+}
+
+.inp:focus{
+  border: 2px solid var(--fcolor);
+  outline: none;
+}
+
+.btn{
+  border-radius: var(--borderrad);
+  padding: var(--padding);
+  gap: 5px;
+}
+.tx-bg{
+  color: var(--bgcolor);
+}
+.tx-pri{
+  color: var(--pricolor);
+}
+.tx-dark{
+  color: var(--darkcolor);
+}
+.tx-darkx2{
+  color: var(--darkcolorx2);
+}
+.bg-pri{
+  background-color: var(--pricolor);
+}
+.bg-sec{
+  background-color: var(--seccolor);
 }
