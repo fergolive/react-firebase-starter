@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import Cover from './Cover';
 import firebaseApp from '../firebase';
-import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword} from "firebase/auth";
+import { 
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signInWithRedirect,
+    GoogleAuthProvider
+} from "firebase/auth";
 const auth=getAuth(firebaseApp);
+const googleProvider=new GoogleAuthProvider()
 
 const Login = () => {
     const [isRegistering,setRegistering]=useState(false)
@@ -16,9 +23,12 @@ const Login = () => {
         if(isRegistering){ //si se esta registrando
             
             const userFirebase= await createUserWithEmailAndPassword(auth,email,pass);
+
+        } else {
+            
+            signInWithEmailAndPassword(auth,email,pass)
         }
         
-        signInWithEmailAndPassword(auth,email,pass)
     }
 
   return (
@@ -34,7 +44,9 @@ const Login = () => {
                 {!isRegistering?"Iniciar sesión":"Registrarme"}
                 </button>
 
-                <button className='btn bg-sec tx-darkx2' >Accede con Google</button>
+                <button className='btn bg-sec tx-darkx2' type='button' onClick={()=>signInWithRedirect(auth,googleProvider)}>
+                    Accede con Google
+                </button>
 
                 <button className=' tx-dark' type='button'
                     onClick={()=>setRegistering(!isRegistering)}>{isRegistering?"¿Ya tienes cuenta? Inicia sesión":"¿No tienes cuenta? Regístrate"}
